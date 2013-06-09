@@ -3,7 +3,7 @@ vagrant-yeoman-env
 
 A vagrant dev environment for yeoman (http://yeoman.io) that uses a Ubuntu 12.10 Server image and Puppet for provisioning.
 
-This repo is intended as a proof of concept for creating and running a fully-functional Yeoman default scaffolding ("generator-webapp") project in Vagrant
+This repo is intended as a proof of concept for creating and running a fully-functional Yeoman default scaffolding ("generator-webapp") project in Vagrant.
 
 ## Dependencies
 
@@ -72,7 +72,7 @@ Compressed, packaged assets can be found in ~/yeoman/webapp/dist
 ## Notes
 
 * The VM uses 1GB of RAM.  This is probably overkill and you can adjust memory allocation in the Vagrantfile if you wish (/vagrant/Vagrantfile)
-* Live refresh of the browser is not currently supported as your browser is technically on a different operating system
+* Live refresh of the browser is not currently supported as the project server and your browser are running on different operating systems.
 * Yeoman is still in beta as of this writing and I've noticed wonkyness with the webapp generator, specifically when downloading some dependencies via NPM.
 
 Happy Coding!
