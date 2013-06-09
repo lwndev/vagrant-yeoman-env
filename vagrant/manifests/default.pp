@@ -1,15 +1,3 @@
-define replace($file, $pattern, $replacement) {
-  $pattern_no_slashes = regsubst($pattern, '/', '\\/', 'G', 'U')
-  $replacement_no_slashes = regsubst($replacement, '/', '\\/', 'G', 'U')
-
-  exec { "replace_${pattern}_${file}":
-    command => "/usr/bin/perl -pi -e 's/${pattern_no_slashes}/${replacement_no_slashes}/' '${file}'",
-    onlyif => "/usr/bin/perl -ne 'BEGIN { \$ret = 1; } \$ret = 0 if /${pattern_no_slashes}/ && ! /\\Q${replacement_no_slashes}\\E/; END { exit \$ret; }' '${file}'",
-    alias => "exec_$name",
-  }
-}
-
-
 class must-have {
   include apt
 
@@ -67,10 +55,11 @@ class must-have {
     require => File["/home/vagrant/yeoman/webapp"],
   }
 
-  replace { replace_localhost_with_zero_ip:
-    file => "/home/vagrant/yeoman/webapp/Gruntfile.js",
-    pattern => "hostname: \'localhost\'",
-    replacement => "hostname: '0.0.0.0'",
+  file_line { "update hostname in gruntfile": 
+    line => "hostname: '0.0.0.0'", 
+    path => "/home/vagrant/yeoman/webapp/Gruntfile.js", 
+    match => "hostname: '.*'", 
+    ensure => present,
     require => Exec["create webapp site"],
   }
 
