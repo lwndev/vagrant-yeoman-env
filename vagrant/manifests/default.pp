@@ -56,7 +56,7 @@ class must-have {
   }
 
   file_line { "update hostname in gruntfile": 
-    line => "hostname: '0.0.0.0'", 
+    line => "                hostname: '0.0.0.0'", 
     path => "/home/vagrant/yeoman/webapp/Gruntfile.js", 
     match => "hostname: '.*'", 
     ensure => present,
