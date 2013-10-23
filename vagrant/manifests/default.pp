@@ -26,7 +26,7 @@ class must-have {
   }
 
   exec { 'install yeoman':
-    command => '/usr/bin/npm install -g yo grunt-cli bower phantomjs',
+    command => '/usr/bin/npm install -g yo phantomjs',
     creates => [
       '/usr/lib/node_modules/bower/bin/bower',
       '/usr/lib/node_modules/yo/bin/yo',
@@ -56,7 +56,7 @@ class must-have {
   }
 
   file_line { "update hostname in gruntfile": 
-    line => "                hostname: '0.0.0.0'", 
+    line => "\t\t\t\thostname: '0.0.0.0'", 
     path => "/home/vagrant/yeoman/webapp/Gruntfile.js", 
     match => "hostname: '.*'", 
     ensure => present,
