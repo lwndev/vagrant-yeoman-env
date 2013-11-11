@@ -73,7 +73,6 @@ Compressed, packaged assets can be found in ~/yeoman/webapp/dist
 
 * The VM uses 1GB of RAM.  This is probably overkill and you can adjust memory allocation in the Vagrantfile if you wish (/vagrant/Vagrantfile)
 * Live refresh of the browser is not currently supported as the project server and your browser are running on different operating systems.
-* Yeoman is still in beta as of this writing and I've noticed wonkyness with the webapp generator, specifically when downloading some dependencies via NPM.
 
 Happy Coding!
 
