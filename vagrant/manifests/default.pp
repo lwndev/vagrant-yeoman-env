@@ -26,12 +26,11 @@ class must-have {
   }
 
   exec { 'install yeoman':
-    command => '/usr/bin/npm install -g yo phantomjs',
+    command => '/usr/bin/npm install -g yo',
     creates => [
       '/usr/lib/node_modules/bower/bin/bower',
       '/usr/lib/node_modules/yo/bin/yo',
       '/usr/lib/node_modules/grunt-cli/bin/grunt',
-      '/usr/lib/node_modules/phantomjs/bin/phantomjs'
       ],
     require => [ Exec["apt-get update 2"], Package["nodejs"] ],
   }
